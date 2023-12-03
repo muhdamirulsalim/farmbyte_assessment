@@ -56,10 +56,7 @@ export default function Blogs() {
         const postsData = await getPosts();
 
         if (postsData?.length) {
-          // Calculate the starting index based on the page number and items per page
           const startIndex = (page - 1) * pageSize + 3;
-
-          // Get the items to display on the current page
           const itemsToShow = postsData.slice(startIndex, startIndex + pageSize);
 
           setAllPosts(postsData);
@@ -78,11 +75,7 @@ export default function Blogs() {
 
   const getItemToShow = (value) => {
     if (allPosts?.length) {
-      console.log('test')
-      // Calculate the starting index based on the page number and items per page
       const startIndex = (value - 1) * pageSize + 3;
-
-      // Get the items to display on the current page
       const itemsToShow = allPosts.slice(startIndex, startIndex + pageSize);
 
       setTotalPage(Math.ceil((allPosts.length - 3) / pageSize));
